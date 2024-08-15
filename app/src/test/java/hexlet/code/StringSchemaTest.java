@@ -1,13 +1,11 @@
 package hexlet.code;
 
-import hexlet.code.Validator;
-import hexlet.code.StringSchema;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class ValidatorTest {
+public class StringSchemaTest {
 
     private Validator validator;
 
