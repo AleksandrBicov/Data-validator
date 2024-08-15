@@ -1,17 +1,18 @@
 package hexlet.code;
 
 public class StringSchema {
-    private boolean isRequired = false;
+    private boolean required = false;
     private String requiredSubstring = null;
     private Integer requiredInt;
 
-    public void required() {
-        isRequired = true;
+    public StringSchema required() {
+        required = true;
+        return this;
     }
 
     public Boolean isValid(String s) {
         if (s == null || s.isEmpty()) {
-            return !isRequired;
+            return !required;
         }
         if (requiredSubstring != null && !s.contains(requiredSubstring)) {
             return false;
