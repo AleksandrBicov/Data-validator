@@ -1,5 +1,7 @@
 package hexlet.code;
 
+import java.util.Map;
+
 public class Validator {
 
     public StringSchema string() {
@@ -8,5 +10,9 @@ public class Validator {
 
     public NumberSchema number() {
         return  new NumberSchema();
+    }
+
+    public MapSchema map() {
+        return new MapSchema();
     }
 }

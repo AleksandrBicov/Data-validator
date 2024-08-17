@@ -12,6 +12,7 @@ public class NumberSchemaTest {
         schema = new NumberSchema();
     }
 
+
     @Test
     public void testIsValid_PositiveNumber() {
         assertTrue(schema.isValid(5));
@@ -83,7 +84,8 @@ public class NumberSchemaTest {
 
     @Test
     public void testRange_WithRequiredConstraint() {
-        schema.required().range(5, 10);
+        schema.required();
+        schema.range(5, 10);
         assertTrue(schema.isValid(5));
         assertTrue(schema.isValid(10));
         assertFalse(schema.isValid(4));

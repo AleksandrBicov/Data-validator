@@ -1,30 +1,26 @@
 package hexlet.code;
 
-public class StringSchema {
-    private boolean required = false;
+public class StringSchema extends BaseSchema<String> {
+
     private String requiredSubstring = null;
     private Integer requiredInt;
 
-    public StringSchema required() {
-        required = true;
-        return this;
-    }
-
-    public Boolean isValid(String s) {
-        if (s == null || s.isEmpty()) {
+    @Override
+    public boolean isValid(String string) {
+        if (string == null || string.isEmpty()) {
             return !required;
         }
-        if (requiredSubstring != null && !s.contains(requiredSubstring)) {
+        if (requiredSubstring != null && !string.contains(requiredSubstring)) {
             return false;
         }
-        if (requiredInt != null && requiredInt > s.length()) {
+        if (requiredInt != null && requiredInt > string.length()) {
             return false;
         }
         return true;
     }
 
-    public StringSchema minLength(int i) {
-        this.requiredInt = i;
+    public StringSchema minLength(int integer) {
+        this.requiredInt = integer;
         return this;
     }
 
@@ -32,6 +28,5 @@ public class StringSchema {
         this.requiredSubstring = substring;
         return this;
     }
-
 
 }

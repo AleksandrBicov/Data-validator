@@ -1,6 +1,13 @@
 package hexlet.code;
 
-public class BaseSchema<T> {
-    private boolean required = false;
-    
+public abstract class BaseSchema<T> {
+     boolean required;
+
+     public BaseSchema<T> required() {
+          required = true;
+          return this;
+     }
+
+     public abstract boolean isValid(T value);
+
 }
