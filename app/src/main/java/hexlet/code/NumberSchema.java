@@ -1,21 +1,21 @@
 package hexlet.code;
 
 
-public class NumberSchema extends BaseSchema<Integer>{
+public class NumberSchema extends BaseSchema<Integer> {
     private boolean positive = false;
     private boolean range = false;
-    private int min;
-    private int max;
+    private int minValue;
+    private int maxValue;
 
     @Override
-    public boolean isValid(Integer integer) {
-        if (integer == null) {
+    public boolean isValid(Integer i) {
+        if (i == null) {
             return !required;
         }
-        if (positive && integer <= 0) {
+        if (positive && i <= 0) {
             return false;
         }
-        if (range && (integer < min || integer > max)) {
+        if (range && (i < minValue || i > maxValue)) {
             return false;
         }
         return true;
@@ -29,7 +29,7 @@ public class NumberSchema extends BaseSchema<Integer>{
 
     public void range(int min, int max) {
         this.range = true;
-        this.min = min;
-        this.max = max;
+        this.minValue = min;
+        this.maxValue = max;
     }
 }

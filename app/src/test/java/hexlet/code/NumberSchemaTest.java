@@ -2,7 +2,10 @@ package hexlet.code;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
+
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 
 public class NumberSchemaTest {
     private NumberSchema schema;
@@ -14,65 +17,65 @@ public class NumberSchemaTest {
 
 
     @Test
-    public void testIsValid_PositiveNumber() {
+    public void testIsValidPositiveNumber() {
         assertTrue(schema.isValid(5));
     }
 
     @Test
-    public void testIsValid_NullBeforeRequired() {
+    public void testIsValidNullBeforeRequired() {
         assertTrue(schema.isValid(null));
     }
 
     @Test
-    public void testIsValid_NullAfterPositive() {
+    public void testIsValidNullAfterPositive() {
         assertTrue(schema.positive().isValid(null));
     }
 
     @Test
-    public void testIsValid_NullAfterRequired() {
+    public void testIsValidNullAfterRequired() {
         schema.required();
         assertFalse(schema.isValid(null));
     }
 
     @Test
-    public void testIsValid_PositiveNumberAfterRequired() {
+    public void testIsValidPositiveNumberAfterRequired() {
         schema.required();
         assertTrue(schema.isValid(10));
     }
 
     @Test
-    public void testIsValid_NegativeNumberAfterPositive() {
+    public void testIsValidNegativeNumberAfterPositive() {
         schema.positive();
         assertFalse(schema.isValid(-10));
     }
 
     @Test
-    public void testIsValid_ZeroAfterPositive() {
+    public void testIsValidZeroAfterPositive() {
         schema.positive();
         assertFalse(schema.isValid(0));
     }
 
     @Test
-    public void testRange_WithinRange() {
+    public void testRangeWithinRange() {
         schema.range(5, 10);
         assertTrue(schema.isValid(5));
         assertTrue(schema.isValid(10));
     }
 
     @Test
-    public void testRange_BelowMin() {
+    public void testRangeBelowMin() {
         schema.range(5, 10);
         assertFalse(schema.isValid(4));
     }
 
     @Test
-    public void testRange_AboveMax() {
+    public void testRangeAboveMax() {
         schema.range(5, 10);
         assertFalse(schema.isValid(11));
     }
 
     @Test
-    public void testRange_WithPositiveConstraint() {
+    public void testRangeWithPositiveConstraint() {
         schema.positive().range(5, 10);
         assertTrue(schema.isValid(5));
         assertTrue(schema.isValid(10));
@@ -83,7 +86,7 @@ public class NumberSchemaTest {
     }
 
     @Test
-    public void testRange_WithRequiredConstraint() {
+    public void testRangeWithRequiredConstraint() {
         schema.required();
         schema.range(5, 10);
         assertTrue(schema.isValid(5));

@@ -1,7 +1,5 @@
 package hexlet.code;
 
-import java.util.Map;
-
 public class Validator {
 
     public StringSchema string() {
