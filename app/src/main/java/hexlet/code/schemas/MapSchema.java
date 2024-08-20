@@ -12,9 +12,10 @@ public class MapSchema extends BaseSchema<Map> {
         return this;
     }
 
-    public MapSchema sizeOf(int integer) {
+    public MapSchema sizeof(int integer) {
         addCheck(
                 "sizeof",
+
                 value -> value.size() == integer
         );
         return this;
@@ -29,7 +30,7 @@ public class MapSchema extends BaseSchema<Map> {
                     if (value.containsKey(key)) {
                         return schema.isValid((String) value.get(key));
                     } else {
-                        return !schema.required;
+                        return true;
                     }
                 })
         );
