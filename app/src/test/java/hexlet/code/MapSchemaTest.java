@@ -19,7 +19,7 @@ public class MapSchemaTest {
     private MapSchema schema;
 
     @BeforeEach
-    public void setUp() {
+    public final void setUp() {
         validator = new Validator();
         schema = validator.map();
     }

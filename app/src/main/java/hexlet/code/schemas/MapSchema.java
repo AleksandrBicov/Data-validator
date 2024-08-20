@@ -4,7 +4,7 @@ import java.util.Map;
 
 public class MapSchema extends BaseSchema<Map> {
 
-    public MapSchema required() {
+    public final MapSchema required() {
         addCheck(
                 "required",
                 value -> value != null
@@ -12,7 +12,7 @@ public class MapSchema extends BaseSchema<Map> {
         return this;
     }
 
-    public MapSchema sizeof(int integer) {
+    public final MapSchema sizeof(int integer) {
         addCheck(
                 "sizeof",
 
@@ -21,7 +21,7 @@ public class MapSchema extends BaseSchema<Map> {
         return this;
     }
 
-    public MapSchema shape(Map<String, BaseSchema<String>> map) {
+    public final MapSchema shape(Map<String, BaseSchema<String>> map) {
         addCheck(
                 "shape",
                 value -> map.entrySet().stream().allMatch(entry -> {

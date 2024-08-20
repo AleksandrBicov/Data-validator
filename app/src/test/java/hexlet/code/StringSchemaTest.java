@@ -13,7 +13,7 @@ public class StringSchemaTest {
     private Validator validator;
 
     @BeforeEach
-    public void setUp() {
+    public final void setUp() {
         validator = new Validator();
     }
 
