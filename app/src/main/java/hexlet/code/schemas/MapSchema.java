@@ -12,7 +12,7 @@ public class MapSchema extends BaseSchema<Map> {
         return this;
     }
 
-    public MapSchema sizeof(int integer) {
+    public MapSchema sizeOf(int integer) {
         addCheck(
                 "sizeof",
 
