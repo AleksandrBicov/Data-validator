@@ -49,7 +49,7 @@ public class MapSchemaTest {
         schema.required();
         var data = new HashMap<String, String>();
         data.put("key1", "value1");
-        schema.sizeOf(2);
+        schema.sizeof(2);
         assertFalse(schema.isValid(data));
         data.put("key2", "value2");
         assertTrue(schema.isValid(data));
@@ -58,7 +58,7 @@ public class MapSchemaTest {
     @Test
     public void testSizeOfWithEmptyMap() {
         schema.required();
-        schema.sizeOf(1);
+        schema.sizeof(1);
         var data = new HashMap<String, String>();
         assertFalse(schema.isValid(data));
     }
@@ -66,14 +66,14 @@ public class MapSchemaTest {
     @Test
     public void testSizeOfWithNull() {
         schema.required();
-        schema.sizeOf(1);
+        schema.sizeof(1);
         assertFalse(schema.isValid(null));
     }
 
     @Test
     public void testSizeOfWithExactSize() {
         schema.required();
-        schema.sizeOf(1);
+        schema.sizeof(1);
         var data = new HashMap<String, String>();
         data.put("key1", "value1");
         assertTrue(schema.isValid(data));
@@ -82,7 +82,7 @@ public class MapSchemaTest {
     @Test
     public void testSizeOfWithExcessSize() {
         schema.required();
-        schema.sizeOf(1);
+        schema.sizeof(1);
         var data = new HashMap<String, String>();
         data.put("key1", "value1");
         data.put("key2", "value2");
