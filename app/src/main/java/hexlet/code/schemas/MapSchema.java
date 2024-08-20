@@ -4,6 +4,14 @@ import java.util.Map;
 
 public class MapSchema extends BaseSchema<Map> {
 
+    public MapSchema required() {
+        addCheck(
+                "required",
+                value -> value != null
+        );
+        return this;
+    }
+
     public MapSchema sizeOf(int integer) {
         addCheck(
                 "sizeof",
@@ -27,4 +35,5 @@ public class MapSchema extends BaseSchema<Map> {
         );
         return this;
     }
+
 }

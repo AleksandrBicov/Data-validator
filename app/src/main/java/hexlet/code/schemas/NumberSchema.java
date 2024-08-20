@@ -3,10 +3,18 @@ package hexlet.code.schemas;
 
 public class NumberSchema extends BaseSchema<Integer> {
 
+    public NumberSchema required() {
+        addCheck(
+                "required",
+                value -> value != null
+        );
+        return this;
+    }
+
     public NumberSchema positive() {
         addCheck(
                 "positive",
-                value ->  value > 0
+                value -> value == null || value > 0
         );
         return this;
     }

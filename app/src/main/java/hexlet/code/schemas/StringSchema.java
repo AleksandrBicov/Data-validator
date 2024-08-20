@@ -2,6 +2,14 @@ package hexlet.code.schemas;
 
 public class StringSchema extends BaseSchema<String> {
 
+    public StringSchema required() {
+        addCheck(
+                "required",
+                value -> value != null && !value.isEmpty()
+        );
+        return this;
+    }
+
     public StringSchema minLength(int integer) {
         addCheck(
                 "minLength",
